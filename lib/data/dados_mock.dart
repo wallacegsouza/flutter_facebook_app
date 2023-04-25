@@ -1,6 +1,6 @@
-import 'package:facebook_interface/models/post.dart';
-import 'package:facebook_interface/models/story.dart';
-import 'package:facebook_interface/models/user.dart';
+import 'package:facebook_interface/domain/entities/post.dart';
+import 'package:facebook_interface/domain/entities/story.dart';
+import 'package:facebook_interface/domain/entities/user.dart';
 
 /*
 * Fontes imagens: https://source.unsplash.com/
@@ -48,12 +48,12 @@ List<Story> Storys = [
   Story(
     user: UsersOnline[0],
     urlImage: "https://source.unsplash.com/JMWjOup32Fk/800x600",
-    foiVisualizado: true,
+    isVisualized: true,
   ),
   Story(
     user: UsersOnline[1],
     urlImage: "https://source.unsplash.com/no_TCkPUq_s/800x600",
-    foiVisualizado: true,
+    isVisualized: true,
   ),
   Story(
       user: UsersOnline[2],

@@ -1,6 +1,7 @@
 import 'package:facebook_interface/data/dados_mock.dart';
 import 'package:facebook_interface/shared/color_palette.dart';
 import 'package:facebook_interface/shared/components/area_create_post.dart';
+import 'package:facebook_interface/shared/components/area_story.dart';
 import 'package:facebook_interface/shared/components/circle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -46,6 +47,15 @@ class _HomeState extends State<Home> {
           SliverToBoxAdapter(
             child: AreaCreatePost(
               user: UserAtual,
+            ),
+          ),
+          SliverPadding(
+            padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+            sliver: SliverToBoxAdapter(
+              child: AreaStory(
+                user: UserAtual,
+                storys: Storys,
+              ),
             ),
           ),
           SliverToBoxAdapter(

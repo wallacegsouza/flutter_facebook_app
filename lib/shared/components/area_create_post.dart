@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:facebook_interface/models/user.dart';
+import 'package:facebook_interface/domain/entities/user.dart';
 import 'package:flutter/material.dart';
 
 class AreaCreatePost extends StatelessWidget {

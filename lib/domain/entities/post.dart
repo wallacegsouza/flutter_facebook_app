@@ -1,4 +1,4 @@
-import 'package:facebook_interface/models/user.dart';
+import 'package:facebook_interface/domain/entities/user.dart';
 
 class Post {
   User user;
