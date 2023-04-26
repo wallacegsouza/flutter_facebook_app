@@ -11,12 +11,12 @@ import 'package:facebook_interface/domain/entities/user.dart';
 * */
 
 /* Usuário Logado */
-User UserAtual = User(
+User userAtual = User(
     nome: "Jamilton Damasceno",
     urlImage: "https://source.unsplash.com/EQFtEzJGERg/800x600");
 
 /* Lista de usuários online */
-List<User> UsersOnline = [
+List<User> usersOnline = [
   User(
       nome: "José Renato de almeida",
       urlImage: "https://source.unsplash.com/UJLAMjEjISo/800x600"),
@@ -46,39 +46,39 @@ List<User> UsersOnline = [
 /* Lista de estórias */
 List<Story> Storys = [
   Story(
-    user: UsersOnline[0],
+    user: usersOnline[0],
     urlImage: "https://source.unsplash.com/JMWjOup32Fk/800x600",
     isVisualized: true,
   ),
   Story(
-    user: UsersOnline[1],
+    user: usersOnline[1],
     urlImage: "https://source.unsplash.com/no_TCkPUq_s/800x600",
     isVisualized: true,
   ),
   Story(
-      user: UsersOnline[2],
+      user: usersOnline[2],
       urlImage: "https://source.unsplash.com/6dX5TPPM34M/800x600"),
   Story(
-      user: UsersOnline[3],
+      user: usersOnline[3],
       urlImage: "https://source.unsplash.com/PO7CGnoDFUI/800x600"),
   Story(
-      user: UsersOnline[4],
+      user: usersOnline[4],
       urlImage: "https://source.unsplash.com/rewyZqUwAqY/800x600"),
   Story(
-      user: UsersOnline[5],
+      user: usersOnline[5],
       urlImage: "https://source.unsplash.com/1HpQU1evGK8/800x600"),
   Story(
-      user: UsersOnline[6],
+      user: usersOnline[6],
       urlImage: "https://source.unsplash.com/W9z_628BBpc/800x600"),
   Story(
-      user: UsersOnline[7],
+      user: usersOnline[7],
       urlImage: "https://source.unsplash.com/DOb-2jd0sbc/800x600"),
 ];
 
 /* Lista de postagens */
 List<Post> postagens = [
   Post(
-      user: UsersOnline[0],
+      user: usersOnline[0],
       descricao: "Passeio muito legal no final de semana",
       tempoAtras: "20m",
       urlImage: "https://source.unsplash.com/DOb-2jd0sbc/800x600",
@@ -86,7 +86,7 @@ List<Post> postagens = [
       comentarios: 3,
       compartilhamentos: 5),
   Post(
-      user: UsersOnline[1],
+      user: usersOnline[1],
       descricao: "Quero compartilhar com você algo que aconteceu...",
       tempoAtras: "40m",
       urlImage: "https://source.unsplash.com/G0H58Z5aPog/800x600",
@@ -94,7 +94,7 @@ List<Post> postagens = [
       comentarios: 3,
       compartilhamentos: 5),
   Post(
-      user: UsersOnline[2],
+      user: usersOnline[2],
       descricao: "Não recomendo esse lugar, não fomos bem atendidos",
       tempoAtras: "55m",
       urlImage: "https://source.unsplash.com/1a_u4n02YNo/800x600",
@@ -102,7 +102,7 @@ List<Post> postagens = [
       comentarios: 3,
       compartilhamentos: 5),
   Post(
-      user: UsersOnline[3],
+      user: usersOnline[3],
       descricao:
           "Não importa o que você sabe, mas o que faz com o que você sabe!",
       tempoAtras: "1h",
@@ -111,7 +111,7 @@ List<Post> postagens = [
       comentarios: 3,
       compartilhamentos: 5),
   Post(
-      user: UsersOnline[4],
+      user: usersOnline[4],
       descricao: "Preciso de indicações de eletricista, meu chuveiro pifou :(",
       tempoAtras: "2h",
       urlImage: "https://source.unsplash.com/_tWMmC9CQXQ/800x600",
@@ -119,7 +119,7 @@ List<Post> postagens = [
       comentarios: 3,
       compartilhamentos: 5),
   Post(
-      user: UsersOnline[5],
+      user: usersOnline[5],
       descricao: "Que chuva maravilhosa!",
       tempoAtras: "2d",
       urlImage: "https://source.unsplash.com/a4wUKaaMGWQ/800x600",
@@ -127,7 +127,7 @@ List<Post> postagens = [
       comentarios: 3,
       compartilhamentos: 5),
   Post(
-      user: UsersOnline[6],
+      user: usersOnline[6],
       descricao: "Um dia mais que especial, nos divertimos bastante ;)",
       tempoAtras: "3d",
       urlImage: "https://source.unsplash.com/YS1OOmHAFD0/800x600",
@@ -135,7 +135,7 @@ List<Post> postagens = [
       comentarios: 30,
       compartilhamentos: 3),
   Post(
-      user: UsersOnline[7],
+      user: usersOnline[7],
       descricao: "VOCÊ É DO TAMANHO DOS SEUS SONHOS! Lute, persista, "
           "insista, corra atrás, passe algumas noites sem dormir direito, "
           "mas nunca desista de seus sonhos, acredite que é capaz, se olhe "

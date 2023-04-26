@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class AreaStory extends StatelessWidget {
   final User user;
   final List<Story> storys;
-  Story addStory = Story(user: UserAtual, urlImage: UserAtual.urlImage);
+  Story addStory = Story(user: userAtual, urlImage: userAtual.urlImage);
 
   AreaStory({Key? key, required this.user, required this.storys})
       : super(key: key);
