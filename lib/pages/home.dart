@@ -1,10 +1,10 @@
 import 'package:facebook_interface/data/dados_mock.dart';
 import 'package:facebook_interface/domain/entities/post.dart';
-import 'package:facebook_interface/domain/entities/user.dart';
 import 'package:facebook_interface/shared/components/area_create_post.dart';
 import 'package:facebook_interface/shared/components/area_story.dart';
 import 'package:facebook_interface/shared/components/circle_button.dart';
 import 'package:facebook_interface/shared/components/contact_list.dart';
+import 'package:facebook_interface/shared/components/list_options.dart';
 import 'package:facebook_interface/shared/components/post_card.dart';
 import 'package:facebook_interface/shared/utils/devices.dart';
 import 'package:facebook_interface/shared/utils/shared_components.dart';
@@ -38,7 +38,11 @@ class HomeDesktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Flexible(flex: 2, child: Container(color: Colors.red)),
+        Flexible(
+            flex: 2,
+            child: ListOptions(
+              user: userAtual,
+            )),
         const Spacer(),
         Flexible(
             flex: 5,
@@ -49,7 +53,7 @@ class HomeDesktop extends StatelessWidget {
                   sliver: SliverToBoxAdapter(
                     child: AreaStory(
                       user: userAtual,
-                      storys: Storys,
+                      storys: storys,
                     ),
                   ),
                 ),
@@ -108,11 +112,11 @@ class HomeMobile extends StatelessWidget {
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+          padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
           sliver: SliverToBoxAdapter(
             child: AreaStory(
               user: userAtual,
-              storys: Storys,
+              storys: storys,
             ),
           ),
         ),

@@ -44,7 +44,7 @@ List<User> usersOnline = [
 ];
 
 /* Lista de estórias */
-List<Story> Storys = [
+List<Story> storys = [
   Story(
     user: usersOnline[0],
     urlImage: "https://source.unsplash.com/JMWjOup32Fk/800x600",

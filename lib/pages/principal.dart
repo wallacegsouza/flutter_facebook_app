@@ -15,7 +15,7 @@ class Principal extends StatefulWidget {
 
 class _PrincipalState extends State<Principal> {
   final List<Widget> _pages = [
-    Home(),
+    const Home(),
     const Scaffold(
       backgroundColor: Colors.green,
     ),
@@ -53,6 +53,7 @@ class _PrincipalState extends State<Principal> {
         child: Scaffold(
           appBar: isDesktop
               ? PreferredSize(
+                  preferredSize: Size(tamanho.width, 65),
                   child: PageBarNavigationDesktop(
                     icones: _icones,
                     indiceAbaSelecionada: _indiceAbaSelecionada,
@@ -63,7 +64,7 @@ class _PrincipalState extends State<Principal> {
                     },
                     user: userAtual,
                   ),
-                  preferredSize: Size(tamanho.width, 65))
+                )
               : null,
           body: TabBarView(
             physics: const NeverScrollableScrollPhysics(),

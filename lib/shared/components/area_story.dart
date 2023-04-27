@@ -4,38 +4,40 @@ import 'package:facebook_interface/domain/entities/story.dart';
 import 'package:facebook_interface/domain/entities/user.dart';
 import 'package:facebook_interface/shared/color_palette.dart';
 import 'package:facebook_interface/shared/components/perfil_image.dart';
+import 'package:facebook_interface/shared/utils/devices.dart';
 import 'package:flutter/material.dart';
 
 class AreaStory extends StatelessWidget {
   final User user;
   final List<Story> storys;
-  Story addStory = Story(user: userAtual, urlImage: userAtual.urlImage);
+  final Story _addStory = Story(user: userAtual, urlImage: userAtual.urlImage);
 
   AreaStory({Key? key, required this.user, required this.storys})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    bool isDesktop = Devices.isDesktop(context);
     return Container(
       height: 200,
-      color: Colors.white,
+      color: isDesktop ? Colors.transparent : Colors.white,
       child: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
           scrollDirection: Axis.horizontal,
           itemCount: 1 + storys.length, // 1 + 8 = 9 itens
           itemBuilder: (context, idx) {
             if (idx == 0) {
               return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 4),
                 child: StoryCard(
-                  story: addStory,
+                  story: _addStory,
                   addStory: true,
                 ),
               );
             }
             Story story = storys[idx - 1];
             return Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 4),
               child: StoryCard(
                 story: story,
               ),
@@ -82,7 +84,7 @@ class StoryCard extends StatelessWidget {
                         color: Colors.white, shape: BoxShape.circle),
                     child: IconButton(
                       padding: EdgeInsets.zero,
-                      icon: Icon(Icons.add),
+                      icon: const Icon(Icons.add),
                       iconSize: 30,
                       color: ColorPalette.azulFacebook,
                       onPressed: () {},
@@ -98,8 +100,8 @@ class StoryCard extends StatelessWidget {
             right: 8,
             child: Text(
               addStory ? "Create Story" : story.user.nome,
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  color: Colors.white, fontWeight: FontWeight.bold),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ))

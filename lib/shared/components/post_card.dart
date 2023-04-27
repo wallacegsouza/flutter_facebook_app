@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:facebook_interface/shared/color_palette.dart';
 import 'package:facebook_interface/shared/components/perfil_image.dart';
+import 'package:facebook_interface/shared/utils/devices.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
@@ -13,36 +14,42 @@ class PostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      margin: EdgeInsets.symmetric(vertical: 8),
-      padding: EdgeInsets.symmetric(vertical: 8),
-      child: Column(
-        children: [
-          //Cabeçalho
-          Padding(
+    bool isDesktop = Devices.isDesktop(context);
+
+    return Card(
+      margin: EdgeInsets.symmetric(vertical: 8, horizontal: isDesktop ? 5 : 0),
+      elevation: isDesktop ? 1 : 0,
+      shape: isDesktop
+          ? RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+          : null,
+      child: Container(
+        color: Colors.white,
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Column(
+          children: [
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    PostHeader(postagem: postagem),
+                    Text(postagem.descricao),
+                  ],
+                )),
+            Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: CachedNetworkImage(
+                  imageUrl: postagem.urlImage,
+                )),
+            Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  PostHeader(postagem: postagem),
-                  Text(postagem.descricao),
-                ],
-              )),
-          //Corpo
-          Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: CachedNetworkImage(
-                imageUrl: postagem.urlImage,
-              )),
-          //rodapé
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: PostFooter(
-              postagem: postagem,
-            ),
-          )
-        ],
+              child: PostFooter(
+                postagem: postagem,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -61,7 +68,7 @@ class PostHeader extends StatelessWidget {
           urlImage: postagem.user.urlImage,
           isVisualized: true,
         ),
-        SizedBox(
+        const SizedBox(
           width: 8,
         ),
         Expanded(
@@ -70,8 +77,8 @@ class PostHeader extends StatelessWidget {
           children: [
             Text(
               postagem.user.nome,
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold),
             ),
             Row(
               children: [
@@ -87,7 +94,7 @@ class PostHeader extends StatelessWidget {
             )
           ],
         )),
-        IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz))
+        IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz))
       ],
     );
   }
@@ -176,9 +183,8 @@ class PostButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: Material(
-            child: InkWell(
-      onTap: onTap,
-      child: Container(
+      child: InkWell(
+        onTap: onTap,
         child: Row(
           children: [
             icon,
@@ -193,6 +199,6 @@ class PostButton extends StatelessWidget {
           ],
         ),
       ),
-    )));
+    ));
   }
 }
