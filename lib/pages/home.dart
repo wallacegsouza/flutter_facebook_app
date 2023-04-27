@@ -19,20 +19,34 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // TODO não teve efeito no scroll adicionar esse controller
+  final TrackingScrollController _scrollController = TrackingScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Scaffold(
-      body: Devices(
-        desktop: HomeDesktop(),
-        mobile: HomeMobile(),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        body: Devices(
+          desktop: HomeDesktop(scrollController: _scrollController),
+          mobile: HomeMobile(scrollController: _scrollController),
+        ),
       ),
-    ));
+    );
   }
 }
 
 class HomeDesktop extends StatelessWidget {
-  const HomeDesktop({super.key});
+  final TrackingScrollController scrollController;
+
+  const HomeDesktop({Key? key, required this.scrollController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +61,7 @@ class HomeDesktop extends StatelessWidget {
         Flexible(
             flex: 5,
             child: CustomScrollView(
+              controller: scrollController,
               slivers: [
                 SliverPadding(
                   padding: const EdgeInsets.fromLTRB(0, 10, 0, 5),
@@ -82,11 +97,15 @@ class HomeDesktop extends StatelessWidget {
 }
 
 class HomeMobile extends StatelessWidget {
-  const HomeMobile({Key? key}) : super(key: key);
+  final TrackingScrollController scrollController;
+
+  const HomeMobile({Key? key, required this.scrollController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
+      controller: scrollController,
       slivers: [
         SliverAppBar(
           backgroundColor: Colors.white,
